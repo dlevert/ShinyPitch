@@ -5,6 +5,6 @@ account: dlevert
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3434786
-bundleId: 4039983
+bundleId: 4040144
 url: https://dlevert.shinyapps.io/myapp/
-when: 1609275499.09634
+when: 1609279402.13555

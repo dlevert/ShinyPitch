@@ -2,7 +2,7 @@
 # graph the normal distribution. It will then predict the probability and
 # draw a vertical line, then return the text along with it.
 
-# Load the reuired libraries
+# Load the required libraries
 library(shiny)
 library(ggplot2)
 
