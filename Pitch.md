@@ -6,12 +6,11 @@ autosize: false
 transition: rotate
 font-family: 'American Typewriter'
 
-
 Introduction
 ========================================================
 
 <font size="6">
-* The app was built as a project for course project.)<br/>
+* The app was built as a project for course project.<br/>
 
 * I decided to build an app to predict probabilities.<br/>
 
@@ -53,10 +52,32 @@ For this example, the mean is 10, the standard deviation is 5, the value to be e
 
 The chances of getting a  7  is  72.57 %.
 </font>
-Conclusion
+Here is the code that was evaluated
 ========================================================
-<font size="6">
+<font size="5">
 
-*-* In Conclusion ... <br/>
-
-</font>
+```r
+     mn <- 10; sd <- 5; val <- 7
+     sMin <- qnorm(.025, mean = mn, sd = sd, lower.tail = TRUE)
+     sMax <- qnorm(.975, mean = mn, sd = sd, lower.tail = TRUE)
+     x <- seq(sMin, sMax, 0.1)
+     y <- dnorm(x, mean = mn, sd = sd)
+     pred <- pnorm(val, mean = mn, sd = sd, lower.tail = FALSE)
+     z <- as.data.frame(x)
+     z$y <- y
+     txta <- print(paste("For this example, the mean is ", mn, 
+                 ", the standard deviation is ", sd,
+                 ", the value to be evaluated is ", val, sep = ""))
+     txtb <- print(paste("The chances of getting a ", val, " is ", 
+                 round(pred * 100, 2), "%."))
+     require(ggplot2)
+     ggplot(z, aes(x = x, y = y)) +
+          geom_line() +
+          geom_vline(data = z, mapping = aes(xintercept = val), color = "blue") +
+          geom_text(data = z, mapping=aes(x = val, y = 0.015,
+                                          label = paste("Probablity is ",
+                                                        round(pred * 100, 2),
+                                                        "%")), 
+                    size = 25, angle = 90, vjust = -0.4, hjust = 0) +
+          theme_classic() + theme(text = element_text(size = 100)) 
+```
