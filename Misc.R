@@ -35,7 +35,7 @@ library(rsconnect)
 rsconnect::deployApp('/Users/DenisLevert/Documents/R/R_School/ShinyPitch/MyApp')
 
 # Shiny URL:
-# https://dlevert.shinyapps.io/myapp/?_ga=2.231688790.832080716.1609268414-608553947.1609268414
+# http://dlevert.shinyapps.io/myapp
 
 # Github URL:
 # https://github.com/dlevert/ShinyPitch.git
